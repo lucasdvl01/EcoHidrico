@@ -8,9 +8,9 @@
 */
 
 :root {
-    --bg-color: #050E17;
-    --text-main: #E2E8F0;
-    --text-muted: #94A3B8;
+    --bg-color: #0B1D2E; /* Azul Profundo Vibrante */
+    --text-main: #FFFFFF;
+    --text-muted: #CBD5E1;
     
     --deep-blue: #0B1D2E;
     --water-blue: #00A8E8;
@@ -18,8 +18,8 @@
     --moss-green: #3A5A40;
     --accent-glow: #00FFD1;
     
-    --header-bg: rgba(11, 29, 46, 0.7);
-    --card-bg: rgba(15, 33, 53, 0.6);
+    --header-bg: rgba(11, 29, 46, 0.8);
+    --card-bg: rgba(15, 33, 53, 0.7);
     --border-color: rgba(32, 178, 170, 0.2);
     
     --font-heading: 'Outfit', sans-serif;
@@ -1400,7 +1400,7 @@ body {
 }
 
 body {
-    background-image: var(--bg-mesh);
+    background-color: var(--bg-color);
     background-attachment: fixed;
 }
 
