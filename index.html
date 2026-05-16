@@ -365,9 +365,78 @@
         </section>
 
         <section id="denuncias" class="tab-content">
-            <div class="content-placeholder">
-                <h2>Denúncias</h2>
-                <p>Conteúdo de Denúncias em breve...</p>
+            <div class="report-container">
+                <div class="section-header">
+                    <h2>Faça sua Denúncia</h2>
+                    <p class="mission-text">Ajude a proteger nossos rios. Relate casos de poluição, descarte irregular ou esgoto a céu aberto na sua região. Sua denúncia será salva em tempo real.</p>
+                </div>
+
+                <div class="form-wrapper">
+                    <form id="report-form" class="report-form">
+                        <div class="form-group">
+                            <label for="tipo-ocorrencia">Tipo de Ocorrência <span class="required">*</span></label>
+                            <select id="tipo-ocorrencia" name="tipo-ocorrencia" required>
+                                <option value="" disabled selected>Selecione o problema principal...</option>
+                                <option value="Descarte Irregular de Lixo">Descarte Irregular de Lixo</option>
+                                <option value="Esgoto a Céu Aberto">Esgoto a Céu Aberto</option>
+                                <option value="Poluição Industrial">Poluição Industrial / Produtos Químicos</option>
+                                <option value="Outros">Outros</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="localizacao">Localização (Rua, Bairro, Referência) <span class="required">*</span></label>
+                            <input type="text" id="localizacao" name="localizacao" placeholder="Ex: Margem do rio perto da ponte velha" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="descricao">Descrição do Problema <span class="required">*</span></label>
+                            <textarea id="descricao" name="descricao" rows="4" placeholder="Descreva com detalhes o que você viu no local..." required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Nível de Urgência <span class="required">*</span></label>
+                            <div class="urgency-selector">
+                                <label class="urgency-label baixa">
+                                    <input type="radio" name="urgencia" value="Baixa" required>
+                                    <span class="urgency-btn">Baixa</span>
+                                </label>
+                                <label class="urgency-label media">
+                                    <input type="radio" name="urgencia" value="Média">
+                                    <span class="urgency-btn">Média</span>
+                                </label>
+                                <label class="urgency-label alta">
+                                    <input type="radio" name="urgencia" value="Alta">
+                                    <span class="urgency-btn">Alta</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label for="nome">Seu Nome (Opcional)</label>
+                                <input type="text" id="nome" name="nome" placeholder="Para mantermos contato">
+                            </div>
+                            <div class="form-group half">
+                                <label for="contato">E-mail ou Telefone (Opcional)</label>
+                                <input type="text" id="contato" name="contato" placeholder="Como podemos te avisar?">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-submit" id="submit-btn">
+                            <span class="btn-text">Enviar Denúncia Segura</span>
+                            <div class="loader" id="form-loader"></div>
+                        </button>
+                    </form>
+
+                    <!-- Mensagem de Sucesso (Oculta por padrão) -->
+                    <div id="success-message" class="success-message hidden">
+                        <div class="success-icon-large">✅</div>
+                        <h3>Denúncia Registrada com Sucesso!</h3>
+                        <p>Muito obrigado! Seu reporte foi enviado para o nosso banco de dados em tempo real e será encaminhado para as autoridades competentes.</p>
+                        <button type="button" class="btn-secondary" id="new-report-btn">Fazer nova denúncia</button>
+                    </div>
+                </div>
             </div>
         </section>
     </main>

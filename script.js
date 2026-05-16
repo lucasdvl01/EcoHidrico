@@ -1,3 +1,38 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+
+/* 
+INSTRUÇÕES PARA CONFIGURAÇÃO DO FIREBASE:
+1. Acesse o Firebase Console (https://console.firebase.google.com/)
+2. Crie um novo projeto "EcoHidrico"
+3. Adicione um app Web e copie o objeto firebaseConfig gerado
+4. Substitua o objeto 'firebaseConfig' abaixo pelos seus dados reais
+5. No painel do Firebase, vá em "Firestore Database" e crie um banco de dados
+6. Em "Regras" (Rules) do Firestore, altere para "allow read, write: if true;" para testes iniciais (ATENÇÃO: para produção, configure regras de segurança adequadas).
+*/
+
+const firebaseConfig = {
+    // COLOQUE SUAS CREDENCIAIS AQUI
+    apiKey: "SUA_API_KEY",
+    authDomain: "seu-projeto.firebaseapp.com",
+    projectId: "seu-projeto",
+    storageBucket: "seu-projeto.appspot.com",
+    messagingSenderId: "SEU_SENDER_ID",
+    appId: "SEU_APP_ID"
+};
+
+// Inicializa o Firebase
+let db = null;
+try {
+    // Evitar erro se a configuração for a de teste
+    if(firebaseConfig.apiKey !== "SUA_API_KEY") {
+        const app = initializeApp(firebaseConfig);
+        db = getFirestore(app);
+    }
+} catch (e) {
+    console.warn("Firebase não inicializado. Verifique o firebaseConfig.");
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const navMenu = document.getElementById('nav-menu');
@@ -108,6 +143,74 @@ document.addEventListener('DOMContentLoaded', () => {
     if (lixoTabBtn) {
         lixoTabBtn.addEventListener('click', () => {
             setTimeout(renderChart, 100);
+        });
+    }
+
+    // Formulário de Denúncias (Integração com Firebase)
+    const reportForm = document.getElementById('report-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const successMessage = document.getElementById('success-message');
+    const newReportBtn = document.getElementById('new-report-btn');
+
+    if (reportForm) {
+        reportForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // Adiciona classe de loading no botão
+            submitBtn.classList.add('loading');
+            submitBtn.disabled = true;
+
+            // Coleta os dados do formulário
+            const formData = new FormData(reportForm);
+            
+            // Tratamento especial para o serverTimestamp (usar date local no mock se db não existir)
+            let dataRegistroVal = null;
+            try {
+                dataRegistroVal = db ? serverTimestamp() : new Date().toISOString();
+            } catch(e) {
+                dataRegistroVal = new Date().toISOString();
+            }
+
+            const reportData = {
+                tipoOcorrencia: formData.get('tipo-ocorrencia'),
+                localizacao: formData.get('localizacao'),
+                descricao: formData.get('descricao'),
+                urgencia: formData.get('urgencia'),
+                nome: formData.get('nome') || 'Anônimo',
+                contato: formData.get('contato') || 'Não informado',
+                dataRegistro: dataRegistroVal
+            };
+
+            try {
+                if (db) {
+                    // Salva no Firestore real
+                    await addDoc(collection(db, "denuncias"), reportData);
+                } else {
+                    // Simula salvamento (quando as chaves reais ainda não foram configuradas)
+                    console.log("Mock de salvamento de denúncia recebido:", reportData);
+                    await new Promise(resolve => setTimeout(resolve, 1500));
+                }
+
+                // Oculta o formulário e mostra a mensagem de sucesso
+                reportForm.style.display = 'none';
+                successMessage.classList.remove('hidden');
+
+            } catch (error) {
+                console.error("Erro ao salvar denúncia: ", error);
+                alert("Ocorreu um erro ao enviar sua denúncia. Tente novamente mais tarde.");
+            } finally {
+                // Remove estado de loading
+                submitBtn.classList.remove('loading');
+                submitBtn.disabled = false;
+            }
+        });
+    }
+
+    if (newReportBtn) {
+        newReportBtn.addEventListener('click', () => {
+            reportForm.reset();
+            successMessage.classList.add('hidden');
+            reportForm.style.display = 'flex';
         });
     }
 });

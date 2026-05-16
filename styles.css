@@ -1156,3 +1156,197 @@ body {
         align-items: center;
     }
 }
+
+/* --- Formulário de Denúncias --- */
+.report-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 2rem 0;
+}
+
+.form-wrapper {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    padding: 3rem;
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.report-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.form-group.half {
+    flex: 1;
+}
+
+.report-form label {
+    font-size: 0.95rem;
+    color: var(--text-main);
+    font-weight: 500;
+}
+
+.report-form .required {
+    color: #ff5050;
+}
+
+.report-form input[type="text"],
+.report-form select,
+.report-form textarea {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: var(--text-main);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.report-form input:focus,
+.report-form select:focus,
+.report-form textarea:focus {
+    outline: none;
+    border-color: var(--water-blue);
+    box-shadow: 0 0 0 2px rgba(0, 168, 232, 0.2);
+}
+
+.report-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Urgency Selector */
+.urgency-selector {
+    display: flex;
+    gap: 1rem;
+}
+
+.urgency-label {
+    flex: 1;
+    cursor: pointer;
+}
+
+.urgency-label input {
+    display: none;
+}
+
+.urgency-btn {
+    display: block;
+    text-align: center;
+    padding: 0.8rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-muted);
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.urgency-label input:checked + .urgency-btn {
+    color: white;
+}
+
+.urgency-label.baixa input:checked + .urgency-btn {
+    background: rgba(32, 178, 170, 0.2);
+    border-color: var(--river-green);
+    box-shadow: 0 0 15px rgba(32, 178, 170, 0.2);
+}
+
+.urgency-label.media input:checked + .urgency-btn {
+    background: rgba(255, 165, 0, 0.2);
+    border-color: #FFA500;
+    box-shadow: 0 0 15px rgba(255, 165, 0, 0.2);
+}
+
+.urgency-label.alta input:checked + .urgency-btn {
+    background: rgba(255, 80, 80, 0.2);
+    border-color: #ff5050;
+    box-shadow: 0 0 15px rgba(255, 80, 80, 0.2);
+}
+
+.btn-submit {
+    margin-top: 1rem;
+    width: 100%;
+    padding: 1.2rem;
+    font-size: 1.2rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Loader */
+.loader {
+    display: none;
+    width: 24px;
+    height: 24px;
+    border: 3px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+}
+
+.btn-submit.loading .btn-text {
+    display: none;
+}
+
+.btn-submit.loading .loader {
+    display: block;
+}
+
+/* Success Message */
+.success-message {
+    text-align: center;
+    padding: 2rem;
+    animation: fadeUp 0.5s ease forwards;
+}
+
+.success-message.hidden {
+    display: none;
+}
+
+.success-icon-large {
+    font-size: 5rem;
+    margin-bottom: 1.5rem;
+}
+
+.success-message h3 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--river-green);
+    margin-bottom: 1rem;
+}
+
+.success-message p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+    .form-wrapper { padding: 2rem 1.5rem; }
+    .form-row { flex-direction: column; gap: 1.5rem; }
+    .urgency-selector { flex-direction: column; }
+}
