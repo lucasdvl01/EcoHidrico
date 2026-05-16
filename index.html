@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EcoHídrico</title>
     <meta name="description" content="EcoHídrico - Preservação e conscientização sobre nossos rios e recursos hídricos.">
+    
+    <!-- Open Graph / Redes Sociais -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://eco-hidrico.vercel.app/">
+    <meta property="og:title" content="EcoHídrico | Protegendo Nossos Rios">
+    <meta property="og:description" content="Acompanhe o impacto da nossa ecobarreira e denuncie focos de poluição nos rios urbanos.">
+    <meta property="og:image" content="https://eco-hidrico.vercel.app/og-image.jpg">
+    
+    <!-- Favicon (Placeholder) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💧</text></svg>">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -224,9 +235,7 @@
                     <div class="chart-container">
                         <h3>Coleta Mensal (Últimos 6 meses)</h3>
                         <div class="chart-wrapper">
-                            <div id="bar-chart" class="custom-bar-chart">
-                                <!-- Barras renderizadas via JavaScript -->
-                            </div>
+                            <canvas id="lixoChart"></canvas>
                         </div>
                     </div>
 
@@ -451,6 +460,8 @@
         </div>
     </footer>
 
+    <!-- Bibliotecas Externas -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="module" src="/script.js"></script>
 </body>
 </html>
