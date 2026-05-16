@@ -18,6 +18,11 @@
     --moss-green: #3A5A40;
     --accent-glow: #00FFD1;
     
+    /* Cores de Estado e Feedback */
+    --success-color: #2ED573;
+    --warning-color: #FFA502;
+    --error-color: #FF4757;
+    
     --header-bg: rgba(11, 29, 46, 0.8);
     --card-bg: rgba(15, 33, 53, 0.7);
     --border-color: rgba(32, 178, 170, 0.2);
@@ -42,6 +47,12 @@ body {
     display: flex;
     flex-direction: column;
     position: relative;
+}
+
+/* Acessibilidade de Foco */
+:focus-visible {
+    outline: 2px solid var(--accent-glow);
+    outline-offset: 2px;
 }
 
 /* Background Effects */
@@ -1204,7 +1215,7 @@ body {
 }
 
 .report-form .required {
-    color: #ff5050;
+    color: var(--error-color);
 }
 
 .report-form input[type="text"],
@@ -1227,6 +1238,13 @@ body {
     outline: none;
     border-color: var(--water-blue);
     box-shadow: 0 0 0 2px rgba(0, 168, 232, 0.2);
+}
+
+.report-form input.invalid,
+.report-form select.invalid,
+.report-form textarea.invalid {
+    border-color: var(--error-color);
+    box-shadow: 0 0 0 2px rgba(255, 71, 87, 0.2);
 }
 
 .report-form textarea {
@@ -1272,15 +1290,15 @@ body {
 }
 
 .urgency-label.media input:checked + .urgency-btn {
-    background: rgba(255, 165, 0, 0.2);
-    border-color: #FFA500;
-    box-shadow: 0 0 15px rgba(255, 165, 0, 0.2);
+    background: rgba(255, 165, 2, 0.2);
+    border-color: var(--warning-color);
+    box-shadow: 0 0 15px rgba(255, 165, 2, 0.2);
 }
 
 .urgency-label.alta input:checked + .urgency-btn {
-    background: rgba(255, 80, 80, 0.2);
-    border-color: #ff5050;
-    box-shadow: 0 0 15px rgba(255, 80, 80, 0.2);
+    background: rgba(255, 71, 87, 0.2);
+    border-color: var(--error-color);
+    box-shadow: 0 0 15px rgba(255, 71, 87, 0.2);
 }
 
 .btn-submit {
@@ -1332,7 +1350,7 @@ body {
 .success-message h3 {
     font-family: var(--font-heading);
     font-size: 2rem;
-    color: var(--river-green);
+    color: var(--success-color);
     margin-bottom: 1rem;
 }
 

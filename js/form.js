@@ -30,6 +30,12 @@ export function initForm() {
 
     if (!reportForm) return;
 
+    if (contatoInput) {
+        contatoInput.addEventListener('input', () => {
+            contatoInput.classList.remove('invalid');
+        });
+    }
+
     reportForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
@@ -39,9 +45,12 @@ export function initForm() {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             // Se tem '@', assumimos que é tentativa de e-mail
             if (contato.includes('@') && !emailRegex.test(contato)) {
+                contatoInput.classList.add('invalid');
                 alert('Por favor, insira um endereço de e-mail válido.');
                 contatoInput.focus();
                 return;
+            } else {
+                contatoInput.classList.remove('invalid');
             }
         }
 
