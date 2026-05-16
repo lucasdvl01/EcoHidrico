@@ -277,7 +277,7 @@ body {
 /* Placeholder Styling */
 .content-placeholder {
     background: var(--card-bg);
-    border: 1px solid var(--border-color);
+    border: none;
     border-radius: 24px;
     padding: 5rem 3rem;
     text-align: center;
@@ -448,7 +448,7 @@ body {
 /* Cards Genéricos */
 .feature-card, .integration-card, .team-member {
     background: var(--card-bg);
-    border: 1px solid var(--border-color);
+    border: none;
     border-radius: 20px;
     padding: 2rem;
     backdrop-filter: blur(10px);
@@ -459,7 +459,6 @@ body {
 .feature-card:hover, .integration-card:hover, .team-member:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-    border-color: rgba(0, 255, 209, 0.4);
 }
 
 .feature-icon, .integration-icon {
@@ -725,7 +724,7 @@ body {
 
 .metric-card {
     background: var(--card-bg);
-    border: 1px solid var(--border-color);
+    border: none;
     border-radius: 20px;
     padding: 2.5rem;
     text-align: center;
@@ -736,7 +735,6 @@ body {
 
 .metric-card:hover {
     transform: translateY(-10px);
-    border-color: var(--water-blue);
 }
 
 .metric-icon {
@@ -879,7 +877,7 @@ body {
 
 .chart-container, .waste-types-container {
     background: var(--card-bg);
-    border: 1px solid var(--border-color);
+    border: none;
     border-radius: 24px;
     padding: 2.5rem;
     backdrop-filter: blur(10px);
@@ -1033,7 +1031,7 @@ body {
 
 .disease-card {
     background: var(--card-bg);
-    border: 1px solid var(--border-color);
+    border: none;
     border-radius: 20px;
     padding: 2rem;
     display: flex;
@@ -1046,7 +1044,6 @@ body {
 
 .disease-card:hover {
     transform: translateY(-5px);
-    border-color: rgba(255, 100, 100, 0.4);
 }
 
 .disease-icon {
@@ -1167,7 +1164,7 @@ body {
 
 .form-wrapper {
     background: var(--card-bg);
-    border: 1px solid var(--border-color);
+    border: none;
     border-radius: 24px;
     padding: 3rem;
     max-width: 800px;
