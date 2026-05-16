@@ -1392,16 +1392,47 @@ body {
     color: var(--text-main);
 }
 
-/* --- Design Avançado Equilibrado --- */
+/* --- Dynamic 3D Reveal & Scroll Animations --- */
 
 :root {
-    --bg-mesh: radial-gradient(at 0% 0%, hsla(210, 60%, 12%, 1) 0, transparent 50%),
-               radial-gradient(at 100% 0%, hsla(180, 50%, 15%, 1) 0, transparent 50%);
+    --reveal-duration: 0.8s;
+    --reveal-distance: 30px;
 }
 
+/* Base de Perspectiva */
 body {
+    perspective: 1000px;
     background-color: var(--bg-color);
     background-attachment: fixed;
+}
+
+/* Classes de Reveal (Oculto) */
+.reveal {
+    opacity: 0;
+    transform: translateY(var(--reveal-distance)) scale(0.95);
+    filter: blur(10px);
+    transition: all var(--reveal-duration) cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Classes de Reveal (Visível) */
+.revealed {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+}
+
+/* Variações de Reveal */
+.reveal-left { transform: translateX(calc(var(--reveal-distance) * -1)); }
+.reveal-right { transform: translateX(var(--reveal-distance)); }
+
+.revealed.reveal-left, .revealed.reveal-right {
+    transform: translateX(0);
+}
+
+/* Efeito Tilt 3D nos Cards */
+.feature-card, .metric-card, .disease-card, .team-member, .form-wrapper {
+    transform-style: preserve-3d;
+    transition: transform 0.2s ease-out, box-shadow 0.3s ease;
 }
 
 /* Wave Divider */
@@ -1419,10 +1450,16 @@ body {
     display: block;
     width: calc(100% + 1.3px);
     height: 80px;
+    animation: waveMove 10s linear infinite alternate;
 }
 
 .wave-divider .shape-fill {
     fill: rgba(11, 29, 46, 0.4);
+}
+
+@keyframes waveMove {
+    from { transform: translateX(-20px); }
+    to { transform: translateX(20px); }
 }
 
 /* Transição de Abas: Slide Suave */
