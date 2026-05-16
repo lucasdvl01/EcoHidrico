@@ -195,9 +195,87 @@
         </section>
 
         <section id="lixo-coletado" class="tab-content">
-            <div class="content-placeholder">
-                <h2>Lixo Coletado</h2>
-                <p>Conteúdo de Lixo Coletado em breve...</p>
+            <div class="data-container">
+                <div class="section-header">
+                    <h2>Lixo Coletado</h2>
+                    <p class="mission-text">Acompanhe o volume de resíduos sólidos retidos pela nossa ecobarreira.<br>
+                    <span class="disclaimer-text">*Aviso: Os dados apresentados abaixo são ilustrativos. O painel será atualizado com métricas reais assim que o projeto avançar para a fase de operação em campo.</span></p>
+                </div>
+
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-icon">🏆</div>
+                        <div class="metric-value">1.240 <span class="metric-unit">kg</span></div>
+                        <div class="metric-label">Total Coletado no Ano</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">📅</div>
+                        <div class="metric-value">206 <span class="metric-unit">kg</span></div>
+                        <div class="metric-label">Média Mensal</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">🚀</div>
+                        <div class="metric-value">310 <span class="metric-unit">kg</span></div>
+                        <div class="metric-label">Maior Registro (Março)</div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="chart-container">
+                        <h3>Coleta Mensal (Últimos 6 meses)</h3>
+                        <div class="chart-wrapper">
+                            <div id="bar-chart" class="custom-bar-chart">
+                                <!-- Barras renderizadas via JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="waste-types-container">
+                        <h3>Tipos de Resíduo Coletado</h3>
+                        <div class="waste-list">
+                            <div class="waste-item">
+                                <div class="waste-info">
+                                    <div class="waste-label">
+                                        <span class="waste-dot plastic"></span>
+                                        <span class="waste-name">Plásticos (Garrafas, Sacolas)</span>
+                                    </div>
+                                    <span class="waste-percent">45%</span>
+                                </div>
+                                <div class="metric-bar"><div class="progress plastic-bar" style="width: 45%;"></div></div>
+                            </div>
+                            <div class="waste-item">
+                                <div class="waste-info">
+                                    <div class="waste-label">
+                                        <span class="waste-dot organic"></span>
+                                        <span class="waste-name">Orgânicos (Galhos, Folhas)</span>
+                                    </div>
+                                    <span class="waste-percent">30%</span>
+                                </div>
+                                <div class="metric-bar"><div class="progress organic-bar" style="width: 30%;"></div></div>
+                            </div>
+                            <div class="waste-item">
+                                <div class="waste-info">
+                                    <div class="waste-label">
+                                        <span class="waste-dot styrofoam"></span>
+                                        <span class="waste-name">Isopor</span>
+                                    </div>
+                                    <span class="waste-percent">15%</span>
+                                </div>
+                                <div class="metric-bar"><div class="progress styrofoam-bar" style="width: 15%;"></div></div>
+                            </div>
+                            <div class="waste-item">
+                                <div class="waste-info">
+                                    <div class="waste-label">
+                                        <span class="waste-dot other"></span>
+                                        <span class="waste-name">Outros (Metal, Vidro, etc.)</span>
+                                    </div>
+                                    <span class="waste-percent">10%</span>
+                                </div>
+                                <div class="metric-bar"><div class="progress other-bar" style="width: 10%;"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
