@@ -24,29 +24,6 @@ export function initAnimations() {
         revealObserver.observe(el);
     });
 
-    // 2. Efeito Tilt 3D nos Cards
-    const tiltCards = document.querySelectorAll('.feature-card, .metric-card, .disease-card, .team-member, .form-wrapper');
-
-    tiltCards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            
-            const rotateX = (centerY - y) / 10; // Inclinação X
-            const rotateY = (x - centerX) / 10; // Inclinação Y
-
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-        });
-
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
-        });
-    });
-
     // 3. Efeito Parallax Suave nas Bolhas
     const bubbles = document.querySelectorAll('.bubble');
     window.addEventListener('mousemove', (e) => {

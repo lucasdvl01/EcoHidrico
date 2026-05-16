@@ -1399,9 +1399,8 @@ body {
     --reveal-distance: 30px;
 }
 
-/* Base de Perspectiva */
+/* Base de Perspectiva removida */
 body {
-    perspective: 1000px;
     background-color: var(--bg-color);
     background-attachment: fixed;
 }
@@ -1429,10 +1428,9 @@ body {
     transform: translateX(0);
 }
 
-/* Efeito Tilt 3D nos Cards */
+/* Hover nos Cards (Simplificado) */
 .feature-card, .metric-card, .disease-card, .team-member, .form-wrapper {
-    transform-style: preserve-3d;
-    transition: transform 0.2s ease-out, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Wave Divider */
