@@ -1,13 +1,221 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ecohidrico</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoHídrico</title>
+    <meta name="description" content="EcoHídrico - Preservação e conscientização sobre nossos rios e recursos hídricos.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <span class="logo-eco">Eco</span><span class="logo-hidrico">Hídrico</span>
+                <div class="logo-wave"></div>
+            </div>
+            
+            <button class="mobile-menu-btn" aria-label="Abrir menu" id="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <button class="nav-link active" data-target="inicio">Início</button>
+                <button class="nav-link" data-target="quem-somos">Quem Somos</button>
+                <button class="nav-link" data-target="lixo-coletado">Lixo Coletado</button>
+                <button class="nav-link" data-target="doencas-hidricas">Doenças Hídricas</button>
+                <button class="nav-link" data-target="denuncias">Denúncias</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- Partículas de fundo para dar uma sensação "líquida/viva" -->
+        <div class="background-effects">
+            <div class="bubble bubble-1"></div>
+            <div class="bubble bubble-2"></div>
+            <div class="bubble bubble-3"></div>
+            <div class="bubble bubble-4"></div>
+        </div>
+
+        <section id="inicio" class="tab-content active">
+            <div class="home-container">
+                <!-- Hero Section -->
+                <div class="hero-section">
+                    <div class="hero-content">
+                        <span class="hero-badge">Tecnologia em prol das águas</span>
+                        <h2 class="hero-title">Resgatando a vida nos <span class="highlight-text">Rios Urbanos</span></h2>
+                        <p class="hero-description">
+                            O projeto <strong>EcoHídrico</strong> desenvolve ecobarreiras inteligentes para a contenção e coleta de resíduos sólidos em rios urbanos. Unindo mecatrônica, sistemas e biotecnologia, transformamos a forma como a sociedade interage e preserva seus recursos hídricos.
+                        </p>
+                        <div class="hero-actions">
+                            <button class="btn-primary" onclick="document.querySelector('[data-target=\'quem-somos\']').click()">Conheça a Equipe</button>
+                            <button class="btn-secondary" onclick="document.querySelector('[data-target=\'denuncias\']').click()">Fazer uma Denúncia</button>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="hero-circle-1"></div>
+                        <div class="hero-circle-2"></div>
+                        <div class="floating-barrier">
+                            <div class="barrier-icon">🌊</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Metrics Section -->
+                <div class="metrics-section">
+                    <h3 class="section-subtitle">Nosso Impacto em Tempo Real</h3>
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-icon">♻️</div>
+                            <div class="metric-value">1.240 <span class="metric-unit">kg</span></div>
+                            <div class="metric-label">Resíduos Retirados</div>
+                            <div class="metric-bar"><div class="progress" style="width: 75%;"></div></div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-icon">📢</div>
+                            <div class="metric-value">45</div>
+                            <div class="metric-label">Denúncias Resolvidas</div>
+                            <div class="metric-bar"><div class="progress" style="width: 60%; background: var(--water-blue);"></div></div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-icon">👥</div>
+                            <div class="metric-value">3.5k+</div>
+                            <div class="metric-label">Pessoas Alcançadas</div>
+                            <div class="metric-bar"><div class="progress" style="width: 90%; background: var(--accent-glow);"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ODS 6 Section -->
+                <div class="ods-section">
+                    <div class="ods-content">
+                        <div class="ods-icon-wrapper">
+                            <!-- Placeholder visual para logo ODS 6 -->
+                            <div class="ods-badge">
+                                <span class="ods-number">6</span>
+                                <span class="ods-name">Água Potável<br>e Saneamento</span>
+                            </div>
+                        </div>
+                        <div class="ods-text">
+                            <h3>Compromisso com a Agenda 2030 (ODS 6)</h3>
+                            <p>O EcoHídrico atua diretamente no <strong>Objetivo de Desenvolvimento Sustentável 6</strong> da ONU: <em>"Assegurar a disponibilidade e gestão sustentável da água e saneamento para todas e todos"</em>.</p>
+                            <p>Nossa ecobarreira e plataforma ajudam a melhorar a qualidade da água reduzindo a poluição, monitorando doenças hídricas e engajando a comunidade na limpeza e preservação dos rios locais.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="quem-somos" class="tab-content">
+            <div class="about-container">
+                <div class="section-header">
+                    <h2>Quem Somos</h2>
+                    <p class="mission-text">Nossa missão é proteger e revitalizar os recursos hídricos por meio da união da tecnologia, automação e ciência. Buscamos promover a conscientização ambiental, reduzir a poluição e melhorar a qualidade de vida das comunidades através de soluções práticas e inovadoras para as nossas águas.</p>
+                </div>
+
+                <div class="pillars-section">
+                    <h3 class="section-subtitle">Nossos Pilares</h3>
+                    <div class="pillars-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🌊</div>
+                            <h4>Ecobarreiras</h4>
+                            <p>Contenção física de resíduos sólidos para evitar a poluição de rios e mares.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🏥</div>
+                            <h4>Saúde Pública</h4>
+                            <p>Análise e prevenção de doenças hídricas, protegendo a população e o ecossistema.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🌱</div>
+                            <h4>Educação Ambiental</h4>
+                            <p>Conscientização da sociedade sobre a importância vital da preservação hídrica.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="multidisciplinary-section">
+                    <h3 class="section-subtitle">Integração Multidisciplinar</h3>
+                    <p class="integration-desc">Nosso projeto é fortalecido pela união de três áreas técnicas, onde cada especialidade cumpre um papel fundamental no sucesso e impacto da solução:</p>
+                    <div class="integration-grid">
+                        <div class="integration-card">
+                            <div class="integration-icon">💻</div>
+                            <h4>Desenvolvimento de Sistemas</h4>
+                            <p>Responsável por esta plataforma digital, garantindo o gerenciamento do fluxo de dados, visualização do impacto, relatórios e denúncias ambientais.</p>
+                        </div>
+                        <div class="integration-card">
+                            <div class="integration-icon">⚙️</div>
+                            <h4>Mecatrônica</h4>
+                            <p>Encarregada do design, montagem e manutenção da estrutura física e automatizada das ecobarreiras, otimizando a coleta de resíduos flutuantes.</p>
+                        </div>
+                        <div class="integration-card">
+                            <div class="integration-icon">🔬</div>
+                            <h4>Biotecnologia</h4>
+                            <p>Realiza a análise técnica da qualidade da água, avalia o impacto ambiental e estuda os riscos biológicos associados às doenças hídricas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-section">
+                    <h3 class="section-subtitle">Nossa Equipe</h3>
+                    <div class="team-grid">
+                        <div class="team-member">
+                            <div class="member-avatar">G</div>
+                            <h4>Guylherme</h4>
+                            <span class="member-role">Técnico em Desenvolvimento de Sistemas</span>
+                        </div>
+                        <div class="team-member">
+                            <div class="member-avatar">L</div>
+                            <h4>Lucas</h4>
+                            <span class="member-role">Técnico em Mecatrônica</span>
+                        </div>
+                        <div class="team-member">
+                            <div class="member-avatar">I</div>
+                            <h4>Isabela</h4>
+                            <span class="member-role">Técnico em Biotecnologia</span>
+                        </div>
+                    </div>
+
+                    <h3 class="section-subtitle advisor-title">Orientadora</h3>
+                    <div class="advisor-container">
+                        <div class="team-member advisor-card">
+                            <div class="member-avatar adv">D</div>
+                            <h4>Profª. Danielle</h4>
+                            <span class="member-role">Biologia</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="lixo-coletado" class="tab-content">
+            <div class="content-placeholder">
+                <h2>Lixo Coletado</h2>
+                <p>Conteúdo de Lixo Coletado em breve...</p>
+            </div>
+        </section>
+
+        <section id="doencas-hidricas" class="tab-content">
+            <div class="content-placeholder">
+                <h2>Doenças Hídricas</h2>
+                <p>Conteúdo de Doenças Hídricas em breve...</p>
+            </div>
+        </section>
+
+        <section id="denuncias" class="tab-content">
+            <div class="content-placeholder">
+                <h2>Denúncias</h2>
+                <p>Conteúdo de Denúncias em breve...</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
 </html>
