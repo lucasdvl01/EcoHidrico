@@ -1,6 +1,7 @@
 import { initNav } from './js/nav.js';
 import { initChart } from './js/chart.js';
 import { initForm } from './js/form.js';
+import { initAnimations } from './js/animations.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Inicializa o Menu e Abas
@@ -11,4 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 3. Inicializa o Formulário de Denúncias
     initForm();
+
+    // 4. Inicializa Animações Avançadas
+    initAnimations();
 });
